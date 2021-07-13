@@ -6,5 +6,5 @@ be used by anyone.
 # Install
 
 ``` bash
-$ pip3 install git+https://github.com/rtmigo/zflow_py#egg=zflow
+$ pip3 install git+https://github.com/rtmigo/fast_file_hash_py#egg=fast_file_hash
 ```
