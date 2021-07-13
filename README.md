@@ -1,7 +1,10 @@
 # [fast_file_hash](https://github.com/rtmigo/fast_file_hash_py)
 
-This package is hastily made, barely documented, and is not intended to 
-be used by anyone.
+Calculates fast hashes of files, not reading the entire data, but snatching
+individual bytes.
+
+This package is hastily made, barely documented, and is not intended to be used
+by anyone.
 
 # Install
 
