@@ -1,6 +1,4 @@
-# [zflow](https://github.com/rtmigo/zflow_py)
-
-Basic functions for managing video files: naming, converting, reading attributes.
+# [fast_file_hash](https://github.com/rtmigo/fast_file_hash_py)
 
 This package is hastily made, barely documented, and is not intended to 
 be used by anyone.
