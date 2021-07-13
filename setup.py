@@ -13,7 +13,7 @@ def load_module_dict(filename: str) -> dict:
     return module.__dict__
 
 
-name = "zflow"
+name = "fast_file_hash"
 
 readme = (Path(__file__).parent / 'README.md').read_text(encoding="utf-8")
 readme = "# " + readme.partition("\n#")[-1]
@@ -24,15 +24,11 @@ setup(
 
     author="Artëm IG",
     author_email="ortemeo@gmail.com",
-    url='https://github.com/rtmigo/zflow_py',
+    url='https://github.com/rtmigo/fast_file_hash_py',
 
     packages=find_packages(exclude=['tests']),
 
-    install_requires=[
-        "rcd@ git+https://github.com/rtmigo/rcd_py",
-        "rcd_str@ git+https://github.com/rtmigo/rcd_str_py",
-        "pickledir"
-    ],
+    install_requires=[],
 
     description="",
 
