@@ -21,4 +21,4 @@ class TestDirtyHash(unittest.TestCase):
             dirty_fast_file_crc64(file, bytes_to_read=10),
             787582093389868693)
 
-#        dirty_fast_file_crc64(str(file), bytes_to_read=10), 6722160219219441570)
+
