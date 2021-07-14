@@ -14,8 +14,21 @@ $ pip3 install git+https://github.com/rtmigo/coarse_hash_py#egg=coarse_hash
 
 # Use
 
-``` python3
-from coarse_hash import coarse_file_crc32
+Calculate the checksum based on ten equidistant bytes, and the file size. 
+The very first and the very last byte of the file will be among the ten read.
 
-print(coarse_file_crc32('/path/to/file.dat'))
+``` python3
+from coarse_hash import file_equidistant_crc32
+
+print(file_equidistant_crc32('/path/to/file.dat', n=10))
+```
+
+Calculate the checksum based on the bytes located at an increasing distance from
+each other, and the file size. In this case, we will read more bytes from the
+file header than from the body.
+
+``` python3
+from coarse_hash import file_fibonacci_crc32
+
+print(file_fibonacci_crc32('/path/to/file.dat'))
 ```
