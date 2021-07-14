@@ -1,6 +1,6 @@
 import unittest
 
-from coarse_hash._hash import _iter_nonzero_bytes
+from coarse_hash._old import _iter_nonzero_bytes
 
 
 class TestNonzero(unittest.TestCase):
