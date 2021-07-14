@@ -1,6 +1,7 @@
 # контрольные суммы CRC64
 
 # http://pastebin.com/yCMxueeR
+from typing import Iterable
 
 crc64table = [
     0x0000000000000000, 0xB32E4CBE03A75F6F, 0xF4843657A840A05B,
@@ -133,30 +134,29 @@ crc64table = [
     0xE0ADA17364673F59]
 
 
-def hex64(x):
-    return hex(x)[2:].upper().rjust(16, '0')
+# def hex64(x):
+#     return hex(x)[2:].upper().rjust(16, '0')
+#
+#
+# def crc64utf8(str):
+#     return crc64bytes(str.encode("utf-8"))
+
+CRC64_INITIAL = 0xFFFFFFFFFFFFFFFF
 
 
-def crc64utf8(str):
-    return crc64bytes(str.encode("utf-8"))
-
-
-def crc64bytes(bytes):
-    crc = 0xFFFFFFFFFFFFFFFF
-    index = 0
-    while index < len(bytes):
-        crc = (crc >> 8) ^ crc64table[(crc ^ bytes[index]) & 0xFF]
-        index += 1
+def crc64bytes(data_bytes: Iterable[int], crc: int = CRC64_INITIAL) -> int:
+    for b in data_bytes:
+        crc = (crc >> 8) ^ crc64table[(crc ^ b) & 0xFF]
     return crc
 
 
-def crc64bs(text):
-    crc = 0xFFFFFFFFFFFFFFFF
-    cou = 0
-    while cou < len(text):
-        crc = (crc >> 8) ^ crc64table[(crc ^ ord(text[cou])) & 0xFF]
-        cou += 1
-    return crc
+# def crc64bs(text):
+#     crc = 0xFFFFFFFFFFFFFFFF
+#     cou = 0
+#     while cou < len(text):
+#         crc = (crc >> 8) ^ crc64table[(crc ^ ord(text[cou])) & 0xFF]
+#         cou += 1
+#     return crc
 
 
 """
