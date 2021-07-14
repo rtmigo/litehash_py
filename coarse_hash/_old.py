@@ -57,11 +57,3 @@ def fastHashCRC64(filename: Union[Path, str],
         c for c in _iter_equally_distributed_bytes(filename, bytes_to_read))
 
     return crc64bytes(data)
-
-#    FULL32 = 0xFFFFFFFF
-
-#    initial = (FULL32 ^ filename.stat().st_size) & FULL32
-
-
-
-#    return crc32(bytes(_iter_fibonacci_placed_bytes(filename)), initial)
