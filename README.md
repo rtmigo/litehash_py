@@ -1,14 +1,15 @@
 # [coarse_hash](https://github.com/rtmigo/coarse_hash_py)
 
-Calculates fast but very coarse hashes from files.
+Calculates fast but very coarse hashes from files. The hash is made up of the
+file size and rare bytes of the file.
 
-This package is hastily made, barely documented, and is not intended to be used
-by anyone.
+This allows you to get hashes of large files very quickly. However, such a hash
+may not display minor differences within the files.
 
 # Install
 
 ``` bash
-$ pip3 install git+https://github.com/rtmigo/fast_file_hash_py#egg=fast_file_hash
+$ pip3 install git+https://github.com/rtmigo/coarse_hash_py#egg=coarse_hash
 ```
 
 # Use
