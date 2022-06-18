@@ -8,7 +8,7 @@ may not display small differences in file content.
 # Install
 
 ``` bash
-$ pip3 install git+https://github.com/rtmigo/lighthash_py#egg=lighthash
+$ pip3 install lighthash
 ```
 
 # Use
