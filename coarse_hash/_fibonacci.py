@@ -1,6 +1,6 @@
 # SPDX-FileCopyrightText: (c) 2021 Artёm IG <github.com/rtmigo>
 # SPDX-License-Identifier: MIT
-
+from hashlib import md5
 from pathlib import Path
 from typing import Union, BinaryIO, Iterable
 from zlib import crc32
@@ -26,14 +26,16 @@ def _iter_fibo(f: BinaryIO, speedup: int):
     return _iter_positioned_bytes(f, fibonacci_sequence(speedup))
 
 
-def file_fibonacci_crc32(file: Union[Path, str], speedup: int = 1) -> int:
-    file = Path(file)
-
+def _fibobytes(file: Path, speedup: int) -> bytes:
     size_as_bytes = file.stat().st_size.to_bytes(8, byteorder="big")
     with file.open("rb") as f:
         data_bytes = bytes(_iter_fibo(f, speedup))
+    return data_bytes + size_as_bytes
 
-    crc = crc32(data_bytes)
-    crc = crc32(size_as_bytes, crc)
 
-    return crc
+def file_fibonacci_crc32(file: Union[Path, str], speedup: int = 1) -> int:
+    return crc32(_fibobytes(Path(file), speedup))
+
+
+def file_fibonacci_md5(file: Union[Path, str], speedup: int = 1) -> str:
+    return md5(_fibobytes(Path(file), speedup)).hexdigest()

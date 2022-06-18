@@ -18,7 +18,7 @@ Calculate the checksum based on ten equidistant bytes, and the file size.
 The very first and the very last byte of the file will be among the ten read.
 
 ``` python3
-from coarse_hash import file_equidistant_crc32
+from coarse_hash import file_equidistant_crc32 
 
 print(file_equidistant_crc32('/path/to/file.dat', n=10))
 ```
@@ -28,7 +28,8 @@ each other, and the file size. In this case, we will read more bytes from the
 file header than from the body.
 
 ``` python3
-from coarse_hash import file_fibonacci_crc32
+from coarse_hash import file_fibonacci_crc32, file_fibonacci_md5
 
 print(file_fibonacci_crc32('/path/to/file.dat'))
+print(file_fibonacci_md5('/path/to/file.dat'))
 ```
