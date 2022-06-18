@@ -18,7 +18,7 @@ The very first and the very last byte of the file will be among the ten read.
 
 ``` python3
 from pathlib import Path
-from coarse_hash import file_to_hash_equidistant 
+from lighthash import file_to_hash_equidistant 
 
 print(file_to_hash_equidistant(Path('/path/to/file.dat'), n=10))
 ```
@@ -29,7 +29,7 @@ file header than from the body.
 
 ``` python3
 from pathlib import Path
-from coarse_hash import file_to_hash_fibonacci
+from lighthash import file_to_hash_fibonacci
 
 print(file_to_hash_fibonacci(Path('/path/to/file.dat')))
 ```
