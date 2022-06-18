@@ -5,8 +5,8 @@ import unittest
 from io import BytesIO, SEEK_SET
 from pathlib import Path
 
-from coarse_hash import file_equidistant_crc32
-from coarse_hash._equidistant import _equidistant_bytes
+from lighthash import file_equidistant_crc32
+from lighthash._equidistant import _equidistant_bytes
 
 file = Path(__file__).parent / "data" / "public-domain-image.jpg"
 

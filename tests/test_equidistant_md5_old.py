@@ -4,7 +4,7 @@
 import unittest
 from pathlib import Path
 
-from coarse_hash._equidistant import file_equidistant_md5
+from lighthash._equidistant import file_equidistant_md5
 
 file = Path(__file__).parent / "data" / "public-domain-image.jpg"
 

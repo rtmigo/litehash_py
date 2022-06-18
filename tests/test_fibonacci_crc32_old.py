@@ -5,8 +5,8 @@ import unittest
 from io import BytesIO, SEEK_SET
 from pathlib import Path
 
-from coarse_hash import file_fibonacci_crc32
-from coarse_hash._fibonacci import _iter_fibo
+from lighthash import file_fibonacci_crc32
+from lighthash._fibonacci import _iter_fibo
 
 file = Path(__file__).parent / "data" / "public-domain-image.jpg"
 

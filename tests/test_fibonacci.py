@@ -4,7 +4,7 @@
 import unittest
 from itertools import islice
 
-from coarse_hash._fibonacci import fibonacci_sequence
+from lighthash._fibonacci import fibonacci_sequence
 
 
 class TestIterFibo(unittest.TestCase):
