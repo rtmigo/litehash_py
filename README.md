@@ -1,4 +1,4 @@
-# [coarse_hash](https://github.com/rtmigo/coarse_hash_py)
+# [lighthash](https://github.com/rtmigo/lighthash_py)
 
 Calculates fast coarse hashes from files. Instead of hashing entire files, we take individual bytes, add the size of the file, and calculate the hash from that.
 
@@ -8,7 +8,7 @@ may not display small differences in file content.
 # Install
 
 ``` bash
-$ pip3 install git+https://github.com/rtmigo/coarse_hash_py#egg=coarse_hash
+$ pip3 install git+https://github.com/rtmigo/lighthash_py#egg=lighthash
 ```
 
 # Use
@@ -18,7 +18,7 @@ The very first and the very last byte of the file will be among the ten read.
 
 ``` python3
 from pathlib import Path
-from coarse_hash import file_to_hash_equidistant 
+from lighthash import file_to_hash_equidistant 
 
 print(file_to_hash_equidistant(Path('/path/to/file.dat'), n=10))
 ```
@@ -29,7 +29,7 @@ file header than from the body.
 
 ``` python3
 from pathlib import Path
-from coarse_hash import file_to_hash_fibonacci
+from lighthash import file_to_hash_fibonacci
 
 print(file_to_hash_fibonacci(Path('/path/to/file.dat')))
 ```
@@ -45,7 +45,7 @@ The optional `HashAlgo` argument allows you to select a hashing algorithm.
 | `HashAlgo.sha256` | 32                  |
 
 ```python3
-from coarse_hash import file_to_hash_fibonacci, HashAlgo
+from lighthash import file_to_hash_fibonacci, HashAlgo
 
 print(file_to_hash_fibonacci('/path/to/file.dat', algo=HashAlgo.crc32))
 ```

@@ -4,8 +4,8 @@
 import unittest
 from pathlib import Path
 
-from coarse_hash import file_fibonacci_md5, HashAlgo
-from coarse_hash._fibonacci import file_to_hash_fibonacci
+from lighthash import file_fibonacci_md5, HashAlgo
+from lighthash._fibonacci import file_to_hash_fibonacci
 
 file = Path(__file__).parent / "data" / "public-domain-image.jpg"
 

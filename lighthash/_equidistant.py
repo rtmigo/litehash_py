@@ -5,7 +5,7 @@ from pathlib import Path
 from typing import List, BinaryIO, Iterable, Union
 from zlib import crc32
 
-from coarse_hash._common import _iter_positioned_bytes, bytes_to_digest, \
+from lighthash._common import _iter_positioned_bytes, bytes_to_digest, \
     HashAlgo
 
 
