@@ -48,3 +48,4 @@ setup(
         "Typing :: Typed",
      ],
 )
+
