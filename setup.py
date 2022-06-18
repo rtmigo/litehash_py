@@ -20,7 +20,7 @@ readme = "# " + readme.partition("\n#")[-1]
 
 setup(
     name=name,
-    version="0.1.1",
+    version="0.2.0",
 
     author="Artëm IG",
     author_email="ortemeo@gmail.com",
@@ -35,7 +35,7 @@ setup(
     long_description=readme,
     long_description_content_type='text/markdown',
 
-    #license="MIT",
+    license="MIT",
 
     keywords="".split(),
 

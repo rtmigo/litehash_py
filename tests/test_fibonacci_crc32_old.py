@@ -11,7 +11,7 @@ from coarse_hash._fibonacci import _iter_fibo
 file = Path(__file__).parent / "data" / "public-domain-image.jpg"
 
 
-class TestCoarse32(unittest.TestCase):
+class TestFibonacciOldCrc32(unittest.TestCase):
     def test_iter_shifted(self):
         with BytesIO() as stream:
             for x in range(256):

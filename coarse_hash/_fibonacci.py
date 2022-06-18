@@ -1,11 +1,12 @@
 # SPDX-FileCopyrightText: (c) 2021 Artёm IG <github.com/rtmigo>
 # SPDX-License-Identifier: MIT
-from hashlib import md5
+import warnings
 from pathlib import Path
 from typing import Union, BinaryIO, Iterable
 from zlib import crc32
 
-from coarse_hash._common import _iter_positioned_bytes
+from coarse_hash._common import _iter_positioned_bytes, HashAlgo, \
+    bytes_to_digest
 
 
 def fibonacci_sequence(factor: int = 1) -> Iterable[int]:
@@ -33,9 +34,22 @@ def _fibobytes(file: Path, speedup: int) -> bytes:
     return data_bytes + size_as_bytes
 
 
+def file_to_hash_fibonacci(file: Path,
+                           algo: HashAlgo = HashAlgo.md5,
+                           speedup: int = 1) -> str:
+    return bytes_to_digest(_fibobytes(Path(file), speedup), algo)
+
+
 def file_fibonacci_crc32(file: Union[Path, str], speedup: int = 1) -> int:
+    warnings.warn("Use file_to_hash_fibonacci",
+                  DeprecationWarning,
+                  stacklevel=2)
     return crc32(_fibobytes(Path(file), speedup))
 
 
 def file_fibonacci_md5(file: Union[Path, str], speedup: int = 1) -> str:
-    return md5(_fibobytes(Path(file), speedup)).hexdigest()
+    warnings.warn("Use file_to_hash_fibonacci",
+                  DeprecationWarning,
+                  stacklevel=2)
+    return bytes_to_digest(_fibobytes(Path(file), speedup),
+                           HashAlgo.md5)
