@@ -30,14 +30,14 @@ setup(
 
     install_requires=[],
 
-    description="",
+    description="Fast coarse hashes from files",
 
     long_description=readme,
     long_description_content_type='text/markdown',
 
     license="MIT",
 
-    keywords="".split(),
+    keywords="hash file fibonacci crc32 md5 sha256".split(),
 
     classifiers=[
         "Development Status :: 3 - Alpha",
