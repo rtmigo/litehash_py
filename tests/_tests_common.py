@@ -20,4 +20,10 @@ class TempSizedFile:
         return self
 
     def __exit__(self, exc_type, exc_val, exc_tb):
-        os.remove(self._ntf.name)
+        try:
+            os.remove(self._ntf.name)
+        except PermissionError:
+            if os.name == "nt":
+                pass  # we knew it ;)
+            else:
+                raise
