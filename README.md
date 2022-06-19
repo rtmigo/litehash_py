@@ -45,7 +45,8 @@ The optional `HashAlgo` argument allows you to select a hashing algorithm.
 | `HashAlgo.sha256` | 32                  |
 
 ```python3
+from pathlib import Path
 from lighthash import file_to_hash_fibonacci, HashAlgo
 
-print(file_to_hash_fibonacci('/path/to/file.dat', algo=HashAlgo.crc32))
+print(file_to_hash_fibonacci(Path('/path/to/file.dat'), algo=HashAlgo.crc32))
 ```
