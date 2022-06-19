@@ -20,7 +20,7 @@ readme = "# " + readme.partition("\n#")[-1]
 
 setup(
     name=name,
-    version="0.2.0",
+    version="0.2.1",
 
     author="Artëm IG",
     author_email="ortemeo@gmail.com",
@@ -30,14 +30,14 @@ setup(
 
     install_requires=[],
 
-    description="",
+    description="Fast coarse hashes from files",
 
     long_description=readme,
     long_description_content_type='text/markdown',
 
     license="MIT",
 
-    keywords="".split(),
+    keywords="hash file fibonacci crc32 md5 sha256".split(),
 
     classifiers=[
         "Development Status :: 3 - Alpha",
