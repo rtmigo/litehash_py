@@ -1,14 +1,16 @@
 # SPDX-FileCopyrightText: (c) 2022 Artёm IG <github.com/rtmigo>
 # SPDX-License-Identifier: MIT
 
+import random
 import unittest
 from pathlib import Path
 
-from lighthash import file_fibonacci_md5, HashAlgo
+from lighthash import HashAlgo
 from lighthash._equidistant import file_to_hash_equidistant
-from lighthash._fibonacci import file_to_hash_fibonacci
+from tests._tests_common import TempSizedFile
 
 file = Path(__file__).parent / "data" / "public-domain-image.jpg"
+zerofile = Path(__file__).parent / "data" / "zerofile.txt"
 
 
 class TestEquidistant(unittest.TestCase):
@@ -44,3 +46,24 @@ class TestEquidistant(unittest.TestCase):
         self.assertEqual(
             file_to_hash_equidistant(file, HashAlgo.crc32, 17),
             '2964686a')
+
+    def test_zerofile(self):
+        self.assertEqual(zerofile.stat().st_size, 0)
+        self.assertEqual(file_to_hash_equidistant(zerofile),
+                         '7dea362b3fac8e00956a4952a3d4f474')
+        self.assertEqual(
+            file_to_hash_equidistant(zerofile, algo=HashAlgo.crc32),
+            '6522df69')
+
+    def test_args(self):
+        file_to_hash_equidistant(file)
+        with self.assertRaises(ValueError):
+            file_to_hash_equidistant(file, n=-1)
+        file_to_hash_equidistant(file, n=1)
+        file_to_hash_equidistant(file, n=2)
+        file_to_hash_equidistant(file, n=9999999999999999)
+
+    def test_randoms(self):
+        for _ in range(100):
+            with TempSizedFile(random.randint(0, 10)) as f:
+                file_to_hash_equidistant(f.path, n=random.randint(1, 100))

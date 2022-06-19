@@ -21,13 +21,15 @@ class HashAlgo(Enum):
     sha256 = auto()
 
 
-def _uint32_to_digest(x: int) -> str:
+def _uint32_to_hexdigest(x: int) -> str:
+    if not 0 <= x <= 0xFFFFFFFF:
+        raise ValueError(x)
     return hex(x)[2:].rjust(8, '0')
 
 
 def bytes_to_digest(data: bytes, algo: HashAlgo) -> str:
     if algo == HashAlgo.crc32:
-        return _uint32_to_digest(crc32(data))
+        return _uint32_to_hexdigest(crc32(data))
     elif algo == HashAlgo.md5:
         return md5(data).hexdigest()
     elif algo == HashAlgo.sha256:
