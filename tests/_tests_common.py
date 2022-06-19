@@ -27,3 +27,4 @@ class TempSizedFile:
                 pass  # we knew it ;)
             else:
                 raise
+
