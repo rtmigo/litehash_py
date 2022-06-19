@@ -1,13 +1,15 @@
 # SPDX-FileCopyrightText: (c) 2022 Artёm IG <github.com/rtmigo>
 # SPDX-License-Identifier: MIT
-
+import random
 import unittest
 from pathlib import Path
 
 from lighthash import file_fibonacci_md5, HashAlgo
-from lighthash._fibonacci import file_to_hash_fibonacci
+from lighthash import file_to_hash_fibonacci
+from tests._tests_common import TempSizedFile
 
 file = Path(__file__).parent / "data" / "public-domain-image.jpg"
+zerofile = Path(__file__).parent / "data" / "zerofile.txt"
 
 
 class TestFibonacci(unittest.TestCase):
@@ -48,3 +50,17 @@ class TestFibonacci(unittest.TestCase):
         self.assertEqual(
             file_to_hash_fibonacci(file, HashAlgo.crc32, 2),
             'c54b2182')
+
+    def test_zerofile(self):
+        with TempSizedFile(0) as f:
+            assert f.path.stat().st_size == 0
+            self.assertEqual(file_to_hash_fibonacci(f.path),
+                             '7dea362b3fac8e00956a4952a3d4f474')
+            self.assertEqual(
+                file_to_hash_fibonacci(f.path, algo=HashAlgo.crc32),
+                '6522df69')
+
+    def test_randoms(self):
+        for _ in range(100):
+            with TempSizedFile(random.randint(0, 10)) as f:
+                file_to_hash_fibonacci(f.path, speedup=random.randint(1, 100))
