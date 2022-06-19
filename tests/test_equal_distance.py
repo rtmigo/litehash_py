@@ -16,19 +16,13 @@ class TestEqual(unittest.TestCase):
             _equidistant_positions(1000, 11),
             [0, 100, 200, 300, 400, 500, 599, 699, 799, 899, 999])
 
-    # def test_bad_args(self):
-    #     with self.assertRaises(ValueError):
-    #         _equidistant_positions(1000, 0),
-
     def test_n1(self):
-        self.assertEqual( _equidistant_positions(0, 1), [])
+        self.assertEqual(_equidistant_positions(0, 1), [])
         self.assertEqual(_equidistant_positions(1, 1), [0])
         self.assertEqual(_equidistant_positions(2, 1), [0])
         self.assertEqual(_equidistant_positions(3, 1), [1])
         self.assertEqual(_equidistant_positions(4, 1), [2])
         self.assertEqual(_equidistant_positions(10, 1), [4])
-
-
 
     def test_size_zero(self):
         self.assertEqual(
@@ -53,8 +47,6 @@ class TestEqual(unittest.TestCase):
         self.assertEqual(
             _equidistant_positions(5, 50),
             [0, 1, 2, 3, 4])
-
-
 
 
 if __name__ == "__main__":
