@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: (c) 2022 Artёm IG <github.com/rtmigo>
+# SPDX-License-Identifier: MIT
+
+
 import os
 import tempfile
 from pathlib import Path

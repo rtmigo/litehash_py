@@ -14,13 +14,6 @@ def _equidistant_positions(size: int, n: int) -> List[int]:
     bytes from it, located at an equal distance from each other.
     The function returns the indexes of these bytes inside the file."""
 
-    # if n <= 0:
-    #     raise ValueError(n)
-    # if n > size:
-    #     raise ValueError(n)
-    # if n == size:
-    #     return list(range(0, size))
-
     if size <= 0 or n <= 0:
         return []
 
