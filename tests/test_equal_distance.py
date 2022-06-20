@@ -3,7 +3,7 @@
 
 import unittest
 
-from lighthash._equidistant import _equidistant_positions
+from litehash._equidistant import _equidistant_positions
 
 
 class TestEqual(unittest.TestCase):

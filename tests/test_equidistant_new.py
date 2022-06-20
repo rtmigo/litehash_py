@@ -5,9 +5,9 @@ import random
 import unittest
 from pathlib import Path
 
-from lighthash import HashAlgo
-from lighthash._equidistant import file_to_hash_equidistant
-from tests._tests_common import TempSizedFile
+from litehash import HashAlgo
+from litehash._equidistant import file_to_hash_equidistant
+from tests.common import TempSizedFile
 
 file = Path(__file__).parent / "data" / "public-domain-image.jpg"
 zerofile = Path(__file__).parent / "data" / "zerofile.txt"
