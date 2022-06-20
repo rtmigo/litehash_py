@@ -5,7 +5,7 @@ from pathlib import Path
 from typing import List, BinaryIO, Iterable, Union
 from zlib import crc32
 
-from lighthash._common import _iter_positioned_bytes, bytes_to_digest, \
+from litehash._common import _iter_positioned_bytes, bytes_to_digest, \
     HashAlgo
 
 
@@ -13,13 +13,6 @@ def _equidistant_positions(size: int, n: int) -> List[int]:
     """We have a file sized `size` and we want to read the `n` of
     bytes from it, located at an equal distance from each other.
     The function returns the indexes of these bytes inside the file."""
-
-    # if n <= 0:
-    #     raise ValueError(n)
-    # if n > size:
-    #     raise ValueError(n)
-    # if n == size:
-    #     return list(range(0, size))
 
     if size <= 0 or n <= 0:
         return []

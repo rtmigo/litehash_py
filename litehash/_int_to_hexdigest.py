@@ -1,6 +1,9 @@
+# SPDX-FileCopyrightText: (c) 2022 Artёm IG <github.com/rtmigo>
+# SPDX-License-Identifier: MIT
+
 import unittest
 
-from lighthash._common import _uint32_to_hexdigest
+from litehash._common import _uint32_to_hexdigest
 
 
 class IntHexdigestTest(unittest.TestCase):
