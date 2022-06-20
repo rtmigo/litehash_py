@@ -7,6 +7,9 @@ import tempfile
 from pathlib import Path
 from typing import Optional, Any
 
+image_file = Path(__file__).parent / "data" / "public-domain-image.jpg"
+zerofile = Path(__file__).parent / "data" / "zerofile.txt"
+
 
 class TempSizedFile:
     def __init__(self, size: int):

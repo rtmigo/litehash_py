@@ -13,18 +13,18 @@ def load_module_dict(filename: str) -> dict:
     return module.__dict__
 
 
-name = "lighthash"
+name = "litehash"
 
 readme = (Path(__file__).parent / 'README.md').read_text(encoding="utf-8")
 readme = "# " + readme.partition("\n#")[-1]
 
 setup(
     name=name,
-    version="0.2.1",
+    version="0.2.2",
 
     author="Artëm IG",
     author_email="ortemeo@gmail.com",
-    url='https://github.com/rtmigo/lighthash_py',
+    url='https://github.com/rtmigo/litehash_py',
 
     packages=find_packages(exclude=['tests']),
 
